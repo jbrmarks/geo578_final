@@ -85,33 +85,39 @@ def writeUnusedTractsData(unusedTracts, header, writeFileName):
             writeList.append(unusedTracts[key])
         f.writelines(writeList)
 
-# Main function
-if __name__ == "__main__":
+def processCity(cityName):
 
+    # Create empty variables
     tractNumbers = {};
     fiveHundredHeader = "StateAbbr,PlaceName,PlaceFIPS,TractFIPS,Place_TractID,Population2010,ACCESS2_CrudePrev,ACCESS2_Crude95CI,ARTHRITIS_CrudePrev,ARTHRITIS_Crude95CI,BINGE_CrudePrev,BINGE_Crude95CI,BPHIGH_CrudePrev,BPHIGH_Crude95CI,BPMED_CrudePrev,BPMED_Crude95CI,CANCER_CrudePrev,CANCER_Crude95CI,CASTHMA_CrudePrev,CASTHMA_Crude95CI,CHD_CrudePrev,CHD_Crude95CI,CHECKUP_CrudePrev,CHECKUP_Crude95CI,CHOLSCREEN_CrudePrev,CHOLSCREEN_Crude95CI,COLON_SCREEN_CrudePrev,COLON_SCREEN_Crude95CI,COPD_CrudePrev,COPD_Crude95CI,COREM_CrudePrev,COREM_Crude95CI,COREW_CrudePrev,COREW_Crude95CI,CSMOKING_CrudePrev,CSMOKING_Crude95CI,DENTAL_CrudePrev,DENTAL_Crude95CI,DIABETES_CrudePrev,DIABETES_Crude95CI,HIGHCHOL_CrudePrev,HIGHCHOL_Crude95CI,KIDNEY_CrudePrev,KIDNEY_Crude95CI,LPA_CrudePrev,LPA_Crude95CI,MAMMOUSE_CrudePrev,MAMMOUSE_Crude95CI,MHLTH_CrudePrev,MHLTH_Crude95CI,OBESITY_CrudePrev,OBESITY_Crude95CI,PAPTEST_CrudePrev,PAPTEST_Crude95CI,PHLTH_CrudePrev,PHLTH_Crude95CI,SLEEP_CrudePrev,SLEEP_Crude95CI,STROKE_CrudePrev,STROKE_Crude95CI,TEETHLOST_CrudePrev,TEETHLOST_Crude95CI,Geolocation\n"
     leData = {};
     tractTracker = {};
     unusedTracts = {};
 
-    getTractNumbers("Boston_MA/Boston_MA_500.csv", tractNumbers, tractTracker)
+    # Path names
+    fiveHundredPath = cityName + "/" + cityName + "_500.csv"
+    lepath = cityName + "/" + cityName.split("_")[-1] + "_A.csv"
+    leOutputPath = cityName + "/" + cityName + "_LE.csv"
+    unusedTractsPath = cityName + "/" + cityName + "_unusedTracts.csv"
+
+    getTractNumbers(fiveHundredPath, tractNumbers, tractTracker)
     print "500 data successfully imported"
 
-    header = getCensusTracts("Boston_MA/MA_A.csv", tractNumbers, leData, tractTracker)
+    header = getCensusTracts(lepath, tractNumbers, leData, tractTracker)
     print "Life expectancy data successfully imported"
 
     # Delete output file if it already exists
-    if os.path.exists("Boston_MA/Boston_LE.csv"):
-        os.remove("Boston_MA/Boston_LE.csv");
+    if os.path.exists(leOutputPath):
+        os.remove(leOutputPath);
 
-    writeLEData(leData,header, "Boston_MA/Boston_LE.csv")
+    writeLEData(leData,header, leOutputPath)
     print ("Life expectancy data successfully written")
 
     # Delete output file if it already exists
-    if os.path.exists("Boston_MA/Boston_MA_500.csv"):
-        os.remove("Boston_MA/Boston_MA_500.csv");
+    if os.path.exists(fiveHundredPath):
+        os.remove(fiveHundredPath);
 
-    writeLEData(tractNumbers,fiveHundredHeader, "Boston_MA/Boston_MA_500.csv")
+    writeLEData(tractNumbers,fiveHundredHeader, fiveHundredPath)
     print ("Header added to 500 data")
     
     # Create dict of unused tracts
@@ -120,8 +126,27 @@ if __name__ == "__main__":
             unusedTracts[key] = tractTracker[key]
     
     # Delete output file if it already exists
-    if os.path.exists("Boston_MA/Boston_unusedTracts.csv"):
-        os.remove("Boston_MA/Boston_unusedTracts.csv");
+    if os.path.exists(unusedTractsPath):
+        os.remove(unusedTractsPath);
 
-    writeLEData(unusedTracts, fiveHundredHeader, "Boston_MA/Boston_unusedTracts.csv")
+    writeLEData(unusedTracts, fiveHundredHeader, unusedTractsPath)
     print ("Unused tracts written to file")
+
+
+# Main function
+if __name__ == "__main__":
+
+    processCity("Boston_MA")
+    processCity("Denver_CO")
+    processCity("Detroit_MI")
+    processCity("Las_Vegas_NV")
+    processCity("Memphis_TN")
+    processCity("Nashville_TN")
+    processCity("Oklahoma_City_OK")
+    processCity("Portland_OR")
+    processCity("Seattle_WA")
+    processCity("Washington_DC")
+
+    
+
+
