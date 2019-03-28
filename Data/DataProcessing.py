@@ -8,21 +8,27 @@ import os
 
 
 # A function to get tract numbers from 500 cities data
-def getTractNumbers(fileName, tractNumbers):
+def getTractNumbers(fileName, tractNumbers, tractTracker):
     # Open the file to read
     with open(fileName, "r") as f:
-        # Save header for reference (500 cities data is missing the header)
+        # Save header for reference (500 cities data may be missing the header)
         # header = f.readline().strip().split(",")
         # Iterate through each line
         for line in f:
             # For each record, parse it into its seperate attributes
             record = line.strip().split(",")
+            # Check if there is a header for this file
+            if(record[0] == 'StateAbbr'):
+                # If there is a header, skip it
+                continue
             # Get the tract number
             tractNumber = record[4].split("-")[1]
             # Place the tract number in the dictionary
             tractNumbers[tractNumber] = line
+            # Also place into unused tracts for tracking
+            tractTracker[tractNumber] = line
 
-def getCensusTracts(leFileName, tractNumbers, leData, unusedTracts):
+def getCensusTracts(leFileName, tractNumbers, leData, tractTracker):
     # Open the file to read
     with open(leFileName, "r") as f:
         # Save header for reference
@@ -37,8 +43,8 @@ def getCensusTracts(leFileName, tractNumbers, leData, unusedTracts):
             if tractNumber in tractNumbers:
                 # Save the life expectancy information
                 leData[tractNumber] = line
-            else:
-                unusedTracts[tractNumber] = line
+                # Mark as used in unusedTracts
+                tractTracker[tractNumber] = 'used'
     return header
             
 
@@ -85,12 +91,13 @@ if __name__ == "__main__":
     tractNumbers = {};
     fiveHundredHeader = "StateAbbr,PlaceName,PlaceFIPS,TractFIPS,Place_TractID,Population2010,ACCESS2_CrudePrev,ACCESS2_Crude95CI,ARTHRITIS_CrudePrev,ARTHRITIS_Crude95CI,BINGE_CrudePrev,BINGE_Crude95CI,BPHIGH_CrudePrev,BPHIGH_Crude95CI,BPMED_CrudePrev,BPMED_Crude95CI,CANCER_CrudePrev,CANCER_Crude95CI,CASTHMA_CrudePrev,CASTHMA_Crude95CI,CHD_CrudePrev,CHD_Crude95CI,CHECKUP_CrudePrev,CHECKUP_Crude95CI,CHOLSCREEN_CrudePrev,CHOLSCREEN_Crude95CI,COLON_SCREEN_CrudePrev,COLON_SCREEN_Crude95CI,COPD_CrudePrev,COPD_Crude95CI,COREM_CrudePrev,COREM_Crude95CI,COREW_CrudePrev,COREW_Crude95CI,CSMOKING_CrudePrev,CSMOKING_Crude95CI,DENTAL_CrudePrev,DENTAL_Crude95CI,DIABETES_CrudePrev,DIABETES_Crude95CI,HIGHCHOL_CrudePrev,HIGHCHOL_Crude95CI,KIDNEY_CrudePrev,KIDNEY_Crude95CI,LPA_CrudePrev,LPA_Crude95CI,MAMMOUSE_CrudePrev,MAMMOUSE_Crude95CI,MHLTH_CrudePrev,MHLTH_Crude95CI,OBESITY_CrudePrev,OBESITY_Crude95CI,PAPTEST_CrudePrev,PAPTEST_Crude95CI,PHLTH_CrudePrev,PHLTH_Crude95CI,SLEEP_CrudePrev,SLEEP_Crude95CI,STROKE_CrudePrev,STROKE_Crude95CI,TEETHLOST_CrudePrev,TEETHLOST_Crude95CI,Geolocation\n"
     leData = {};
+    tractTracker = {};
     unusedTracts = {};
 
-    getTractNumbers("Boston_MA/Boston_MA_500.csv", tractNumbers)
+    getTractNumbers("Boston_MA/Boston_MA_500.csv", tractNumbers, tractTracker)
     print "500 data successfully imported"
 
-    header = getCensusTracts("Boston_MA/MA_A.csv", tractNumbers, leData, unusedTracts)
+    header = getCensusTracts("Boston_MA/MA_A.csv", tractNumbers, leData, tractTracker)
     print "Life expectancy data successfully imported"
 
     # Delete output file if it already exists
@@ -107,9 +114,14 @@ if __name__ == "__main__":
     writeLEData(tractNumbers,fiveHundredHeader, "Boston_MA/Boston_MA_500.csv")
     print ("Header added to 500 data")
     
+    # Create dict of unused tracts
+    for key in tractTracker:
+        if tractTracker[key] != 'used':
+            unusedTracts[key] = tractTracker[key]
+    
     # Delete output file if it already exists
     if os.path.exists("Boston_MA/Boston_unusedTracts.csv"):
         os.remove("Boston_MA/Boston_unusedTracts.csv");
 
-    writeLEData(unusedTracts,header, "Boston_MA/Boston_unusedTracts.csv")
+    writeLEData(unusedTracts, fiveHundredHeader, "Boston_MA/Boston_unusedTracts.csv")
     print ("Unused tracts written to file")
