@@ -1,0 +1,9 @@
+3-30-2019
+Finished program to extract Life Expectancy data.  Found there were gaps in data coverage.
+Worked on digitizing Memphis TN.  Ran into problem creating polygons.  Postulated the resolution was not high enough.
+
+4-2-2019
+Decided to pursue other data for physical health from 500 cities data.  Will need to justify use of other data, but will 
+solve the issue of data gaps.  Narrowed it down to 2 possible implementations.  Either use the self-reported survey for
+physical health, or use the 5 unhealthy behaviors provided to create a physical health indication.  We are currently 
+leaning towards using the survey as it will be simpler.
