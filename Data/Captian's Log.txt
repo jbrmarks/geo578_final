@@ -7,3 +7,11 @@ Decided to pursue other data for physical health from 500 cities data.  Will nee
 solve the issue of data gaps.  Narrowed it down to 2 possible implementations.  Either use the self-reported survey for
 physical health, or use the 5 unhealthy behaviors provided to create a physical health indication.  We are currently 
 leaning towards using the survey as it will be simpler.
+
+4-9-2019
+Got feedback from Bill.  Need to fix paper throughtout and update our metric of physical health.  Changed the conceptual 
+and implementation diagram to reflect measure of physical health.
+NOTE: Chose to exclude islands from Boston MA analysis.
+Started working on Model Builder in ArcMap
+Next step is to calculate centroids for census tracts.  Consider editing data processing python code to use pre-existing
+centroid (geolocation column) for analysis.  Just need to seperate into latitude and longitude columns.

@@ -49,17 +49,18 @@ def getCensusTracts(leFileName, tractNumbers, leData, tractTracker):
             
 
 
-def writeLEData(leData, header, writeFileName):
-    # Open the write file
-    with open(writeFileName, "w") as f:
-        # Prepare a list of comma seperated values for each line
-        writeList = []
-        # Append header to writelist
-        writeList.append(header)
-        # Get each value from dictionary and append values
-        for key in leData:
-            writeList.append(leData[key])
-        f.writelines(writeList)
+##def writeLEData(leData, header, writeFileName):
+##    # Open the write file
+##    with open(writeFileName, "w") as f:
+##        # Prepare a list of comma seperated values for each line
+##        writeList = []
+##        # Append header to writelist
+##        writeList.append(header)
+##        # Get each value from dictionary and append values
+##        for key in leData:
+##            writeList.append(leData[key])
+##        f.writelines(writeList)
+
 
 def write500Data(tractNumbers, fiveHundredHeader, writeFileName):
     # Open the write file
