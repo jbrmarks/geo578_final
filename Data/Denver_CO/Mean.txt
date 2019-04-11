@@ -1,0 +1,4 @@
+Mental Health: Geometric Mean
+There appears to be an outlier on the high end
+Physical Health: Geometric Mean
+Outlier on high end

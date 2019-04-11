@@ -15,3 +15,12 @@ NOTE: Chose to exclude islands from Boston MA analysis.
 Started working on Model Builder in ArcMap
 Next step is to calculate centroids for census tracts.  Consider editing data processing python code to use pre-existing
 centroid (geolocation column) for analysis.  Just need to seperate into latitude and longitude columns.
+
+4-11-2019
+Tim worked on the paper, going over edits.
+I started identifying which mean (arithmetic or geometric) to use for data.
+
+For outliers; choices:
+Move to median; instead of analysis of varience, kruskall wallace? would work
+Bill suggests using Kruskall Wallace method.
+Calculate means with or without outliers.  Document the difference.  State what you're doing and why.
