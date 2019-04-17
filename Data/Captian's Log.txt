@@ -33,3 +33,9 @@ Forgot to save my work.  :(
 Redid extraction of centroids from 500 cities data.
 Tim worked on projecting city data.
 I worked on the model builder.  It's almost done.  Just some issues with the selection.
+
+4-17-2019
+The damn model builder is still giving me problems.  For some reason, attempting to select by location is failing.  
+So my good, fair, and poor distance tracts are not correct.  Excellent distance always seems to work though.  Go figure.
+
+I started on calculating the median for attributes instead, because I hate what I'm doing now.
