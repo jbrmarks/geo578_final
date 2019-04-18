@@ -39,3 +39,14 @@ The damn model builder is still giving me problems.  For some reason, attempting
 So my good, fair, and poor distance tracts are not correct.  Excellent distance always seems to work though.  Go figure.
 
 I started on calculating the median for attributes instead, because I hate what I'm doing now.
+
+4-18-2019
+Another day, another nickel.  Here we go again.
+Jk, I'm not being paid for this.
+
+Omg, the selection is working!  Just had to copy the selection results to a shape file, then transfer those to a layer 
+for each selection.
+
+Created tool to separate into good and poor health based on median calculated in csv file.
+
+Tim is continuing to work on projecting the data.
