@@ -1,0 +1,9 @@
+<!DOCTYPE model>
+<Option type="Map">
+  <Option name="children"/>
+  <Option name="help"/>
+  <Option type="QString" value="Parks_Processing" name="model_group"/>
+  <Option type="QString" value="Parks_Processing" name="model_name"/>
+  <Option name="parameterDefinitions"/>
+  <Option name="parameters"/>
+</Option>

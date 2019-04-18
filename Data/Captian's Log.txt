@@ -24,3 +24,18 @@ For outliers; choices:
 Move to median; instead of analysis of varience, kruskall wallace? would work
 Bill suggests using Kruskall Wallace method.
 Calculate means with or without outliers.  Document the difference.  State what you're doing and why.
+
+4-15-2019
+Tim worked on the paper.  Says he made the edits.
+Forgot to save my work.  :(
+
+4-16-2019
+Redid extraction of centroids from 500 cities data.
+Tim worked on projecting city data.
+I worked on the model builder.  It's almost done.  Just some issues with the selection.
+
+4-17-2019
+The damn model builder is still giving me problems.  For some reason, attempting to select by location is failing.  
+So my good, fair, and poor distance tracts are not correct.  Excellent distance always seems to work though.  Go figure.
+
+I started on calculating the median for attributes instead, because I hate what I'm doing now.
