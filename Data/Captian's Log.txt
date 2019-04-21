@@ -50,3 +50,8 @@ for each selection.
 Created tool to separate into good and poor health based on median calculated in csv file.
 
 Tim is continuing to work on projecting the data.
+
+4-21-2019
+Finished the models in modelbuilder.  Woot!  Need to calibrate separate_by_health excess shapefiles for school
+computer path though.  Left separate_by_distance as is, as it was working at school.
+Next step is just to run them all at school once Tim is done with the shapefiles, then on to analysis!
