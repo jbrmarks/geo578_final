@@ -55,3 +55,16 @@ Tim is continuing to work on projecting the data.
 Finished the models in modelbuilder.  Woot!  Need to calibrate separate_by_health excess shapefiles for school
 computer path though.  Left separate_by_distance as is, as it was working at school.
 Next step is just to run them all at school once Tim is done with the shapefiles, then on to analysis!
+
+4-22-2019
+Tim is re-digitizing again.  For the last time.
+
+Model now works!  Added styles for symbology in model builder for consistently colored output.
+
+Ran it on Boston, Denver, and Las Vegas.
+
+Denver's Proj_parks was in Detroit's folder.  Moved them into Denver's folder, which means Detroit's Proj_parks is 
+missing.
+
+Nashville, Oklahoma City, Portland, Seattle, and Washington were all saved in a newer version of ArcMap and need to be 
+saved in an older format to open on school computers.
