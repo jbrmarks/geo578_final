@@ -68,3 +68,11 @@ missing.
 
 Nashville, Oklahoma City, Portland, Seattle, and Washington were all saved in a newer version of ArcMap and need to be 
 saved in an older format to open on school computers.
+
+4-23-2019
+Need Implementation, Conceptualization, and basemap layers for lab tomorrow for Atlas to look at.
+
+Tim put a link to his Earth Point converter in the Green Space shapefiles file in google drive.
+INCLUDE IT IN THE PAPER.
+
+Managed to complete the health metric combination.  Updated model tool for it.
