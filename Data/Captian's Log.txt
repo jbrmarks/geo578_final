@@ -76,3 +76,8 @@ Tim put a link to his Earth Point converter in the Green Space shapefiles file i
 INCLUDE IT IN THE PAPER.
 
 Managed to complete the health metric combination.  Updated model tool for it.
+
+4-24-2019
+Tim is manually moving the parks he digitized to try and line them up, so he'll finally be done digitizing.
+
+Bill mentioned something about including spatial regression in the paper?
