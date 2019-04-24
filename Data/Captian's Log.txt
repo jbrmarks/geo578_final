@@ -81,3 +81,5 @@ Managed to complete the health metric combination.  Updated model tool for it.
 Tim is manually moving the parks he digitized to try and line them up, so he'll finally be done digitizing.
 
 Bill mentioned something about including spatial regression in the paper?
+
+Cities saved in wrong ArcMap version: Detroit
