@@ -84,3 +84,30 @@ Bill mentioned something about including spatial regression in the paper?
 We should run spatialautocorrelation or G to show that there is clustering.  For that to make sense, we need to combine
 our Helath and Distance metrics into one value that we can run on, or find an algorithm that allows running on multiple
 fields.  Gonna ask Bill about it tomorrow.
+
+4-25-2019
+Distance model now combines into single data layer with metric for distance.
+Excellent: 3
+Good: 2
+Fair: 1
+Poor: 0
+
+Start with summary statistics.  Basically what we did in lab.  What's the average health score?  Where are the places that are
+above and below that score?  What the average distance to parks?  What's above and below that?
+
+Then look at patterning.  Mainly looking at health.  Once we have that, put it over the parks.
+
+Note the difference between Global and Local analysis.
+
+Local Morans I analysis
+Hot spot cold spot
+
+You need to state the null hypothesis, which is that we expect deviations to be random, and we want that to be proven wrong.
+
+When you do a global Moran's I (which is hotspot analysis) looks at the entire study area.  It calculates a mean for the entire area, and looks at each value and maps
+the result.  The local is different.  It only looks at one census tract, and each surrounding census tract that are directly adjacent to it.  It does that for each
+census tract.  You'll get a different result between the global and local Moran's I.  You'll get P scores and Z scores.  They're basically measures of how different 
+you are from random.  Numbers between -1 and 1, how clustered you are, with random distribution being 0.  Trying to find the strength of that non-random distribution.
+Up to you to determine why they're not random.  
+
+So, we need to run that analysis on each city, and interpret our results.  
