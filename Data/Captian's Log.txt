@@ -81,5 +81,6 @@ Managed to complete the health metric combination.  Updated model tool for it.
 Tim is manually moving the parks he digitized to try and line them up, so he'll finally be done digitizing.
 
 Bill mentioned something about including spatial regression in the paper?
-
-Cities saved in wrong ArcMap version: Detroit
+We should run spatialautocorrelation or G to show that there is clustering.  For that to make sense, we need to combine
+our Helath and Distance metrics into one value that we can run on, or find an algorithm that allows running on multiple
+fields.  Gonna ask Bill about it tomorrow.
