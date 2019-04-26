@@ -111,3 +111,6 @@ you are from random.  Numbers between -1 and 1, how clustered you are, with rand
 Up to you to determine why they're not random.  
 
 So, we need to run that analysis on each city, and interpret our results.  
+
+4-26-2019
+NOTE: Make sure to include that "parks" included in analysis may include areas that are not actually parks, but could be service yards, playgrounds, etc.
